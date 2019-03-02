@@ -1,4 +1,9 @@
-from konlpy.tag import Okt; t = Okt()
+
+import importlib
+from konlpy.corpus import kobill
+docs_ko = [kobill.open(i).read() for i in kobill.fileids()]
+
+
 from konlpy.tag import Mecab
 t = Mecab(dicpath="C:/mecab/mecab-ko-dic")
 pos = lambda d: ['/'.join(p) for p in t.morphs(d)]
